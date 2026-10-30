@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+    ARQUIVO: categorias.html
+    RESPONSÁVEL: Equipe Categorias
+    O menu lateral e o cabeçalho NÃO estão escritos aqui: o JavaScript (js/script.js)
+    desenha os dois nos lugares marcados abaixo. Não apague esses lugares!
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias | Jotas</title>
+
+    <!-- CSS: todo o visual do site está em css/style.css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JS: dados.js primeiro (lista de produtos), depois script.js -->
+    <script src="js/dados.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<!--
+    data-pagina = qual função do JS roda nesta página
+    data-menu   = qual item do menu lateral fica destacado
+-->
+<body data-pagina="categorias" data-menu="categorias">
+
+    <!-- [A11Y] Link "pular para o conteúdo": aparece só ao apertar Tab (quem usa teclado ou leitor de tela) -->
+    <a class="pular-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+    <!-- ===== MENU LATERAL (preenchido pelo JS: montarMenuLateral) ===== -->
+    <aside id="menu-lateral" aria-label="Menu lateral"></aside>
+
+    <main class="conteudo" id="conteudo-principal" tabindex="-1">
+
+        <!-- ===== CABEÇALHO: logo, busca, carrinho, perfil (preenchido pelo JS: montarCabecalho) ===== -->
+        <header id="cabecalho"></header>
+
+        <!-- ===== CHIPS DE CATEGORIA (criados pelo JS a partir do array CATEGORIAS em dados.js) ===== -->
+        <nav class="chips" id="chips-categorias" aria-label="Categorias de produtos"></nav>
+
+        <!-- ===== BANNER: para mudar o texto, edite aqui. O ícone é escolhido em data-icone ===== -->
+        <section class="banner">
+            <div class="banner-texto">
+                <h1>Tudo o que você precisa,<br>mais fácil de encontrar.</h1>
+                <p>Explore nossas categorias de produtos e encontre o que combina com você.</p>
+            </div>
+            <div class="banner-icone" data-icone="categorias"></div>
+        </section>
+
+        <!-- ===== PRODUTOS DA CATEGORIA ESCOLHIDA (JS: desenharCategoria) ===== -->
+        <section class="secao">
+            <h2 class="secao-titulo" id="titulo-categoria">Categoria</h2>
+            <!-- [A11Y] todo campo precisa de <label>. A contagem usa aria-live: o leitor de tela anuncia o resultado -->
+            <div class="barra-lista">
+                <p class="contagem" id="contagem" aria-live="polite"></p>
+                <div class="ordenar">
+                    <label for="ordenar">Ordenar por</label>
+                    <select id="ordenar">
+                        <option value="relevancia">Relevância</option>
+                        <option value="menor-preco">Menor preço</option>
+                        <option value="maior-preco">Maior preço</option>
+                        <option value="desconto">Maior desconto</option>
+                        <option value="avaliacao">Melhor avaliados</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grade-produtos" id="lista-categoria"></div>
+        </section>
+    </main>
+</body>
+</html>

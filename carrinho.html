@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+    ARQUIVO: carrinho.html
+    RESPONSÁVEL: Equipe Carrinho (a página mais difícil: cuidado com o JS!)
+    O menu lateral e o cabeçalho NÃO estão escritos aqui: o JavaScript (js/script.js)
+    desenha os dois nos lugares marcados abaixo. Não apague esses lugares!
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho | Jotas</title>
+
+    <!-- CSS: todo o visual do site está em css/style.css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JS: dados.js primeiro (lista de produtos), depois script.js -->
+    <script src="js/dados.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<!--
+    data-pagina = qual função do JS roda nesta página
+    data-menu   = qual item do menu lateral fica destacado
+-->
+<body data-pagina="carrinho" data-menu="carrinho">
+
+    <!-- [A11Y] Link "pular para o conteúdo": aparece só ao apertar Tab (quem usa teclado ou leitor de tela) -->
+    <a class="pular-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+    <!-- ===== MENU LATERAL (preenchido pelo JS: montarMenuLateral) ===== -->
+    <aside id="menu-lateral" aria-label="Menu lateral"></aside>
+
+    <main class="conteudo" id="conteudo-principal" tabindex="-1">
+
+        <!-- ===== CABEÇALHO: logo, busca, carrinho, perfil (preenchido pelo JS: montarCabecalho) ===== -->
+        <header id="cabecalho"></header>
+
+        <!-- ===== BANNER: para mudar o texto, edite aqui. O ícone é escolhido em data-icone ===== -->
+        <section class="banner">
+            <div class="banner-texto">
+                <h1>Tudo o que você precisa,<br>já sendo quase seu.</h1>
+                <p>Seu carrinho está cheio de boas escolhas. Selecione o que deseja comprar e finalize com segurança.</p>
+            </div>
+            <div class="banner-icone" data-icone="carrinho-ok"></div>
+        </section>
+
+        <div class="carrinho-layout">
+
+            <!-- ===== COLUNA ESQUERDA: itens do carrinho (JS: iniciarCarrinho) ===== -->
+            <section>
+                <div class="carrinho-topo">
+                    <h2 class="secao-titulo" id="titulo-carrinho" tabindex="-1">Seus produtos no carrinho <span class="contagem">(<span id="qtd-produtos">0</span>)</span></h2>
+                    <button type="button" class="btn-texto" id="btn-limpar"><span data-icone="lixeira"></span>Limpar carrinho</button>
+                </div>
+                <div class="grade-produtos" id="itens-carrinho"></div>
+            </section>
+
+            <!-- ===== COLUNA DIREITA: resumo da compra (os números são calculados pelo JS) ===== -->
+            <aside class="resumo" aria-label="Resumo da compra">
+                <h2>Resumo da compra</h2>
+                <h3>Produtos selecionados (<span id="resumo-qtd">0</span>)</h3>
+                <ul class="resumo-itens" id="resumo-itens"></ul>
+
+                <div class="resumo-linha"><span id="resumo-subtotal-texto">Subtotal</span><span id="resumo-subtotal">R$ 0,00</span></div>
+                <div class="resumo-linha"><span>Descontos aplicados</span><span id="resumo-desconto">R$ 0,00</span></div>
+                <div class="resumo-linha"><span>Frete (grátis acima de R$ 199)</span><span id="resumo-frete">Grátis</span></div>
+                <div class="resumo-total" aria-live="polite"><span>Total</span><span id="resumo-total">R$ 0,00</span></div>
+
+                <div class="resumo-economia">
+                    <span data-icone="etiqueta"></span>
+                    <div>Você economizou<strong id="resumo-economizou">R$ 0,00</strong></div>
+                </div>
+
+                <button type="button" class="btn-principal" id="btn-finalizar">
+                    <span data-icone="cadeado"></span><span>Finalizar compra (0)</span>
+                </button>
+                <a class="link-continuar" href="index.html"><span data-icone="seta-esq"></span>Continuar comprando</a>
+            </aside>
+        </div>
+    </main>
+</body>
+</html>

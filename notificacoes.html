@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+    ARQUIVO: notificacoes.html
+    RESPONSÁVEL: Equipe Notificações
+    O menu lateral e o cabeçalho NÃO estão escritos aqui: o JavaScript (js/script.js)
+    desenha os dois nos lugares marcados abaixo. Não apague esses lugares!
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificações | Jotas</title>
+
+    <!-- CSS: todo o visual do site está em css/style.css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JS: dados.js primeiro (lista de produtos), depois script.js -->
+    <script src="js/dados.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<!--
+    data-pagina = qual função do JS roda nesta página
+    data-menu   = qual item do menu lateral fica destacado
+-->
+<body data-pagina="notificacoes" data-menu="notificacoes">
+
+    <!-- [A11Y] Link "pular para o conteúdo": aparece só ao apertar Tab (quem usa teclado ou leitor de tela) -->
+    <a class="pular-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+    <!-- ===== MENU LATERAL (preenchido pelo JS: montarMenuLateral) ===== -->
+    <aside id="menu-lateral" aria-label="Menu lateral"></aside>
+
+    <main class="conteudo" id="conteudo-principal" tabindex="-1">
+
+        <!-- ===== CABEÇALHO: logo, busca, carrinho, perfil (preenchido pelo JS: montarCabecalho) ===== -->
+        <header id="cabecalho"></header>
+
+        <!-- ===== BANNER: para mudar o texto, edite aqui. O ícone é escolhido em data-icone ===== -->
+        <section class="banner">
+            <div class="banner-texto">
+                <h1>Tudo o que você precisa,<br>sempre em dia.</h1>
+                <p>Julia, você tem novas notificações! Veja o que mudou nos produtos que você acompanha.</p>
+            </div>
+            <div class="banner-icone" data-icone="sino"></div>
+        </section>
+
+        <!-- ===== LISTA DE NOTIFICAÇÕES (criada pelo JS: iniciarNotificacoes, dados em NOTIFICACOES) ===== -->
+        <section class="secao">
+            <h2 class="secao-titulo">Novidades para você</h2>
+            <div class="lista-horizontal" id="lista-notificacoes"></div>
+        </section>
+    </main>
+</body>
+</html>

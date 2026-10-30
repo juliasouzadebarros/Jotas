@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+    ARQUIVO: favoritos.html
+    RESPONSÁVEL: Equipe Favoritos
+    O menu lateral e o cabeçalho NÃO estão escritos aqui: o JavaScript (js/script.js)
+    desenha os dois nos lugares marcados abaixo. Não apague esses lugares!
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos | Jotas</title>
+
+    <!-- CSS: todo o visual do site está em css/style.css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JS: dados.js primeiro (lista de produtos), depois script.js -->
+    <script src="js/dados.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<!--
+    data-pagina = qual função do JS roda nesta página
+    data-menu   = qual item do menu lateral fica destacado
+-->
+<body data-pagina="favoritos" data-menu="favoritos">
+
+    <!-- [A11Y] Link "pular para o conteúdo": aparece só ao apertar Tab (quem usa teclado ou leitor de tela) -->
+    <a class="pular-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+    <!-- ===== MENU LATERAL (preenchido pelo JS: montarMenuLateral) ===== -->
+    <aside id="menu-lateral" aria-label="Menu lateral"></aside>
+
+    <main class="conteudo" id="conteudo-principal" tabindex="-1">
+
+        <!-- ===== CABEÇALHO: logo, busca, carrinho, perfil (preenchido pelo JS: montarCabecalho) ===== -->
+        <header id="cabecalho"></header>
+
+        <!-- ===== BANNER: para mudar o texto, edite aqui. O ícone é escolhido em data-icone ===== -->
+        <section class="banner">
+            <div class="banner-texto">
+                <h1>Tudo o que você precisa,<br>com qualidade garantida.</h1>
+                <p>Seus produtos e lojas favoritas, sempre ao seu alcance.</p>
+            </div>
+            <div class="banner-icone" data-icone="coracao"></div>
+        </section>
+
+        <!-- ===== ABAS: o JS (configurarAbasFavoritos) mostra um painel de cada vez ===== -->
+        <div class="abas" role="tablist" aria-label="Favoritos">
+            <button type="button" class="aba ativo" role="tab" id="aba-lojas" aria-selected="true" aria-controls="painel-lojas" data-aba="lojas"><span data-icone="loja"></span>Lojas</button>
+            <button type="button" class="aba" role="tab" id="aba-produtos" aria-selected="false" aria-controls="painel-produtos" tabindex="-1" data-aba="produtos"><span data-icone="caixa"></span>Produtos</button>
+        </div>
+
+        <!-- ===== PAINEL 1: LOJAS FAVORITAS (dados em LOJAS) ===== -->
+        <section class="painel secao" id="painel-lojas" role="tabpanel" aria-labelledby="aba-lojas">
+            <h2 class="secao-titulo">Lojas favoritas</h2>
+            <p class="secao-sub">Vendedores de confiança, sempre com ótimos produtos e atendimento.</p>
+            <div class="lista-horizontal duas-colunas" id="lista-lojas"></div>
+        </section>
+
+        <!-- ===== PAINEL 2: PRODUTOS FAVORITOS (vêm do localStorage) ===== -->
+        <section class="painel secao" id="painel-produtos" role="tabpanel" aria-labelledby="aba-produtos" hidden>
+            <h2 class="secao-titulo">Produtos favoritos</h2>
+            <p class="secao-sub">Julia, aqui estão os seus produtos favoritos!</p>
+            <div class="lista-horizontal duas-colunas" id="lista-favoritos"></div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+    ARQUIVO: index.html
+    RESPONSÁVEL: Equipe Home (HTML + CSS da página inicial)
+    O menu lateral e o cabeçalho NÃO estão escritos aqui: o JavaScript (js/script.js)
+    desenha os dois nos lugares marcados abaixo. Não apague esses lugares!
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jotas</title>
+
+    <!-- CSS: todo o visual do site está em css/style.css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JS: dados.js primeiro (lista de produtos), depois script.js -->
+    <script src="js/dados.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<!--
+    data-pagina = qual função do JS roda nesta página
+    data-menu   = qual item do menu lateral fica destacado
+-->
+<body data-pagina="home" data-menu="inicio">
+
+    <!-- [A11Y] Link "pular para o conteúdo": aparece só ao apertar Tab (quem usa teclado ou leitor de tela) -->
+    <a class="pular-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+    <!-- ===== MENU LATERAL (preenchido pelo JS: montarMenuLateral) ===== -->
+    <aside id="menu-lateral" aria-label="Menu lateral"></aside>
+
+    <main class="conteudo" id="conteudo-principal" tabindex="-1">
+
+        <!-- ===== CABEÇALHO: logo, busca, carrinho, perfil (preenchido pelo JS: montarCabecalho) ===== -->
+        <header id="cabecalho"></header>
+
+        <!-- ===== BANNER: imagem de frete grátis (a regra de R$ 199 também vale no carrinho) ===== -->
+        <section class="banner-imagem">
+            <img src="imagens/jotas_banner_fretefree.jfif" alt="Frete grátis em compras acima de R$ 199 para todo o Brasil">
+        </section>
+
+        <!-- ===== LISTA DE PRODUTOS: os cards são criados pelo JS (iniciarHome) a partir de js/dados.js ===== -->
+        <section class="secao">
+            <h1 class="so-leitor">Jotas: produtos e ofertas</h1>
+            <h2 class="secao-titulo" id="titulo-lista">Produtos e ofertas</h2>
+            <!-- [A11Y] todo campo precisa de <label>. A contagem usa aria-live: o leitor de tela anuncia o resultado -->
+            <div class="barra-lista">
+                <p class="contagem" id="contagem" aria-live="polite"></p>
+                <div class="ordenar">
+                    <label for="ordenar">Ordenar por</label>
+                    <select id="ordenar">
+                        <option value="relevancia">Relevância</option>
+                        <option value="menor-preco">Menor preço</option>
+                        <option value="maior-preco">Maior preço</option>
+                        <option value="desconto">Maior desconto</option>
+                        <option value="avaliacao">Melhor avaliados</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grade-produtos" id="lista-produtos"></div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+    ARQUIVO: produto.html
+    RESPONSÁVEL: Equipe Produtos (UMA página para TODOS os produtos: produto.html?id=...)
+    O menu lateral e o cabeçalho NÃO estão escritos aqui: o JavaScript (js/script.js)
+    desenha os dois nos lugares marcados abaixo. Não apague esses lugares!
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto | Jotas</title>
+
+    <!-- CSS: todo o visual do site está em css/style.css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JS: dados.js primeiro (lista de produtos), depois script.js -->
+    <script src="js/dados.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<!--
+    data-pagina = qual função do JS roda nesta página
+    data-menu   = qual item do menu lateral fica destacado
+-->
+<body data-pagina="produto" data-menu="inicio">
+
+    <!-- [A11Y] Link "pular para o conteúdo": aparece só ao apertar Tab (quem usa teclado ou leitor de tela) -->
+    <a class="pular-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+    <!-- ===== MENU LATERAL (preenchido pelo JS: montarMenuLateral) ===== -->
+    <aside id="menu-lateral" aria-label="Menu lateral"></aside>
+
+    <main class="conteudo" id="conteudo-principal" tabindex="-1">
+
+        <!-- ===== CABEÇALHO: logo, busca, carrinho, perfil (preenchido pelo JS: montarCabecalho) ===== -->
+        <header id="cabecalho"></header>
+
+        <!-- ===== TOPO DO PRODUTO: foto, nome, preço e botões (JS: iniciarProduto lê o ?id= do endereço) ===== -->
+        <section class="produto-topo" id="produto-topo" aria-live="polite"></section>
+
+        <!-- ===== DETALHES: a lista é montada pelo JS a partir do campo "detalhes" de js/dados.js ===== -->
+        <section class="detalhes" id="detalhes-produto">
+            <h2>Detalhes do Produto</h2>
+            <ul id="lista-detalhes"></ul>
+        </section>
+
+        <!-- ===== PRODUTOS PARECIDOS (mesma categoria) ===== -->
+        <section class="secao" id="secao-parecidos">
+            <h2 class="secao-titulo">Produtos parecidos</h2>
+            <div class="grade-produtos" id="lista-parecidos"></div>
+        </section>
+    </main>
+</body>
+</html>

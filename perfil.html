@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+    ARQUIVO: perfil.html
+    RESPONSÁVEL: Equipe Perfil (formulário e tabela)
+    O menu lateral e o cabeçalho NÃO estão escritos aqui: o JavaScript (js/script.js)
+    desenha os dois nos lugares marcados abaixo. Não apague esses lugares!
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu perfil | Jotas</title>
+
+    <!-- CSS: todo o visual do site está em css/style.css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JS: dados.js primeiro (lista de produtos), depois script.js -->
+    <script src="js/dados.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<!--
+    data-pagina = qual função do JS roda nesta página
+    data-menu   = qual item do menu lateral fica destacado
+-->
+<body data-pagina="perfil" data-menu="">
+
+    <!-- [A11Y] Link "pular para o conteúdo": aparece só ao apertar Tab (quem usa teclado ou leitor de tela) -->
+    <a class="pular-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+    <!-- ===== MENU LATERAL (preenchido pelo JS: montarMenuLateral) ===== -->
+    <aside id="menu-lateral" aria-label="Menu lateral"></aside>
+
+    <main class="conteudo" id="conteudo-principal" tabindex="-1">
+
+        <!-- ===== CABEÇALHO: logo, busca, carrinho, perfil (preenchido pelo JS: montarCabecalho) ===== -->
+        <header id="cabecalho"></header>
+
+        <!-- ===== BANNER: para mudar o texto, edite aqui. O ícone é escolhido em data-icone ===== -->
+        <section class="banner">
+            <div class="banner-texto">
+                <h1>Tudo o que você precisa,<br>do seu jeito.</h1>
+                <p>Mantenha seus dados atualizados para uma compra mais rápida.</p>
+            </div>
+            <div class="banner-icone" data-icone="usuario"></div>
+        </section>
+
+        <!-- ===== FORMULÁRIO (o JS só mostra a mensagem "Perfil atualizado" ao enviar) ===== -->
+        <form id="form-perfil" action="#">
+            <fieldset class="formulario">
+                <legend>Informações do perfil</legend>
+                <div class="campos">
+                    <div class="campo"><label for="nome">Nome:</label><input type="text" id="nome" autocomplete="name" value="Julia souza"></div>
+                    <div class="campo"><label for="email">Email:</label><input type="email" id="email" autocomplete="email" value="contato@jotas.com.br"></div>
+                    <div class="campo"><label for="telefone">Telefone:</label><input type="tel" id="telefone" autocomplete="tel" value="(11) 96969-6969"></div>
+                    <div class="campo"><label for="endereco">Endereço:</label><input type="text" id="endereco" autocomplete="street-address" value="Rua das Flores, 123"></div>
+                    <div class="campo"><label for="cidade">Cidade:</label><input type="text" id="cidade" autocomplete="address-level2" value="São Paulo"></div>
+                    <div class="campo"><label for="senha">Senha:</label><input type="password" id="senha" autocomplete="current-password" value="prexecasloucas"></div>
+                </div>
+                <button type="submit" class="btn-principal">Atualizar Perfil</button>
+            </fieldset>
+
+            <!-- ===== TABELA DE PEDIDOS ===== -->
+            <fieldset class="formulario">
+                <legend>Pedidos</legend>
+                <div class="tabela-rolagem">
+                    <table>
+                        <caption class="so-leitor">Lista dos seus pedidos</caption>
+                        <thead>
+                            <tr><th scope="col">ID do pedido</th><th scope="col">Produto</th><th scope="col">Valor total</th><th scope="col">Data</th><th scope="col">Status</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Pedido 1</td><td>Sony DualSense Edge (PS5)</td><td>R$ 1.199,00</td><td>01/01/2023</td><td class="status-entregue">Entregue</td></tr>
+                            <tr><td>Pedido 2</td><td>Tablet Le Novo M11</td><td>R$ 1.799,99</td><td>01/01/2023</td><td class="status-entregue">Entregue</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html>
